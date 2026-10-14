@@ -1,0 +1,446 @@
+*{
+    margin:0;
+    padding:0;
+    /* removing default spacing */ 
+    font-family:'Poppins';
+    box-sizing:border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    list-style: none; 
+}
+header{
+    position:fixed;
+    top: 1rem; /*shift from top*/
+    left: 50%; 
+    transform: translate(-50%); /*make the element at center from its own width */
+    display: flex; 
+    align-items:center;
+    justify-content: center; /* all elements in center */
+    gap: 3rem; /* space bw elements */
+    background-color:rgb(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    color:white;
+    padding: 0.5rem 1.3rem; /* first from top then side */
+    border-radius: 2rem;
+    z-index: 10000; /* it makes the header at top always by giving it very high number */
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
+    color:white;
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-wrap: nowrap; /* in single line */
+    transition: 0.3s ease-in-out; /* for hover effect do it slowly for 0.3 sec */
+}
+.logo .mark1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;          /* Adjust size of the box */
+    height: 40px;
+    background:linear-gradient(to right,rgb(56, 27, 184),pink); /* The purple-blue box color */
+    color: white;         /* Color of the letter 'D' */
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 10px;  /* Rounded corners for the box */
+    text-wrap: nowrap;
+    transition: transform 0.35s;
+    transform: rotate(-3deg)
+
+}
+.logo .mark2:hover{
+    transform:translate(0.3s);
+    transform: scale(1.1); /* increase size */
+}
+.logo .mark1:hover{
+   transform: rotate(6deg) scale(1.06);
+}
+.nav-links{
+    display:flex;
+    gap: 1.5rem;
+}
+li a{  /* can also write .nav-links li a{}  */
+    position: relative;
+    color:white;
+    font-size:1.1rem;
+    font-weight: 200;
+} /* Style the anchortags of the li */
+/* now for hover effect on the anchor tag we are going to create a elemet inside all the anchor element this is its before the hover state*/
+li a::before{
+    position: absolute;
+    content:'';
+    width:0;
+    left:0;
+    height:4px; /* width of the line */
+    top:25px; /* below the text */
+    border-radius: 1rem;
+    transition: 0.3s ease-in-out;
+    background: linear-gradient(to right,blue,pink);
+}
+li a:hover::before{
+    width:100%; /* when hover it will strech to whole length */
+}
+.visit-btn{
+    padding:0.7rem;
+    text-wrap: nowrap;
+    border-radius: 1.3rem;
+    border: none;
+    font-weight: 500;
+    font-size:0.7rem;
+    color:white;
+    cursor: pointer; /* make the pointer to hand sign when hover */
+    transition: 0.3 ease-in-out;
+    background: linear-gradient(to right,blue,pink);
+}
+.visit-btn:hover{
+    transform: scale(1.1);
+    background: linear-gradient(to right,pink,blue);
+}
+#menu-icon{
+    font-size: 2rem;
+    cursor: pointer;
+    display: none; /* as it should be display when viewport is small */
+}
+section{
+    min-height: 100vh; /* take full page */
+    padding: 6rem 6%; /* from top and bottom then sides */
+    width: 100%;
+    position: relative;
+}
+.about{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.about .about-container{
+    display:flex; 
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap:10rem;
+}
+.about img{
+    width:50vh;
+    border-radius: 50%;
+}
+
+.info-box{
+    display: flex;
+    /* to get all in one below another */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:1.5rem;
+}
+.info-box h3{
+    font-size: 2rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+.info-box h1{
+    text-wrap:nowrap;
+    font-size: 3rem;
+    font-weight: 800;
+}
+.info-box span{
+    /* way to make text in color gradient */
+    background:linear-gradient(to right, blue,pink);
+    background-clip: text;
+    color:transparent;
+    font-size:2rem
+}
+.btn-grp{
+    display: flex;
+    gap:1rem;
+}
+.btn{
+    border-radius: 3rem;
+    padding: 0.7rem 1.7rem;
+    border:2px solid black;
+    cursor: pointer;
+    font-weight: 500;
+    text-wrap: nowrap;
+    transition: 0.3s ease-in-out;
+}
+.btn:hover{
+    background-color: black;
+    color: white;
+}
+.socials{
+    display:flex;
+    gap:1rem;
+}
+.socials i{
+    font-size: 3rem;
+    cursor:pointer;
+}
+.socials i:hover{
+    transform: scale(1.1);
+}
+
+.section-title{
+    align-items: center;
+    font-size:4rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+
+.experience-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:5rem;
+}
+.experience img{
+    width:20vw;
+    border-radius:3rem;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr); /* 2 column in a grid and each take 1fraction of space */
+    gap: 2rem;
+}
+.grid-card{
+    border: 2px solid black;
+    border-radius:3rem;
+    padding:3rem;
+    display:flex;
+    flex-direction:column;
+    align-items:baseline; /* on the left */
+    justify-content: left;
+    cursor: pointer;
+    transition:0.3s ease-in-out;
+}
+.grid-card:hover{
+    transform:scale(1.02);
+    background-color: black;
+    color: white;
+}
+.grid-card i{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.grid-card span{
+    font-size:1.5rem;
+    font-weight:500;
+    background: linear-gradient(to right,blue,pink);
+    background-clip: text;
+    color: transparent;
+}
+
+/* styling the scrollbar */
+::-webkit-scrollbar{
+    width:20px;
+}
+::-webkit-scrollbar-track{
+    background-color: rgb(219,219,219);
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(to bottom,pink,blue);
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); /* It meanse Min 300 px and max 1fr for the auto fit */
+    gap:2rem;
+}
+.project-card{
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+    border: 2px solid black;
+    border-radius: 3rem;
+    cursor:pointer;
+    transition:0.3s ease-in-out;
+}
+.project-card:hover{
+    background-color: black;
+    color: white;
+    transform:translateY(-10px)scale(1.02); /* card will move upwards a bit and enlarge */
+}
+.project-card img{
+    width:20vw;
+    border-radius: 1rem;;
+}
+.project-card:hover .btn{
+    /* making rounded linear gradient borders */
+    border: 2px solid transparent;
+    border-radius: 3rem;
+    background:
+        linear-gradient(black,black) padding-box,
+        linear-gradient(135deg, #ff00cc, #3333ff) border-box;
+    background-color: black;
+    color:white;
+}
+.project-card h3{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.input{
+    position:relative;
+}
+.input-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap:2rem;
+    margin-top:5rem;
+}
+.input-box input{
+    border-radius:3rem;
+    border:2px solid black;
+    padding: 1rem 8rem;
+    font-size: 2.2rem;
+}
+.input-box input::placeholder{
+    font-size:2.2rem
+}
+.input i{
+    position: absolute;
+    font-size: 2.5rem;
+    top:50%; /* these persentages are relative to the continer element which is input */
+    left:10px;
+    transform: translate(50%,-50%); /* shift above 50% and right 50% */
+}
+
+footer{
+    bottom:0;
+    left:0;
+    height:10rem;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    align-items: center;;
+    justify-content: center;
+}
+footer ul{
+    display: flex;
+    align-items:center;
+    gap:3rem;
+}
+footer ul li a{
+    color:black;
+    font-weight:600;
+}
+.copyright{
+    font-size: 300;
+    margin-top: 2rem;
+}
+
+
+/* change in look depending on the viewport mostly decrease in
+padding gaps and also the menu icon effect to be used using
+ java script*/
+
+@media(max-width:1080px){
+    header{
+        padding:1rem 2rem;
+        gap:3rem
+    }
+    .about .about-container{
+        gap:3rem;
+    }
+    .experience-info{
+        flex-direction: column; /* important */
+    }
+    .experience-info img{
+        display: none;
+        width:30vw;  /* imp photo size inc as all is column now */
+    }
+    .input-box input{
+        padding: 2rem 5rem;
+        font-size:2.5rem ;
+    }
+    .input-box i{
+        font-size:2.5rem; /* imp */
+    }
+}
+@media(max-width:768px){
+    header{
+        padding:1rem 1rem;
+        gap:1rem
+    }
+    header .logo{
+        font-size:1rem;
+    }
+    header .visit-btn{
+        display: none; /* important */
+    }
+    .about-container{
+        flex-direction: column;
+    }
+    .input-box input{
+        padding: 1rem 2rem;
+        font-size:1.5rem ;
+    }
+    .input-box i{
+        display: none; /* imp */
+    }
+    /* very very imp now all grids are 
+    fixed not auto fit and 1 in a column at a time */
+    .grid{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .experience-info img{
+        width:70vw;  /* imp photo size inc as all is column now */
+    }
+}
+@media(max-width:600px){
+    /* enabling ke baad how will it look */
+    header #menu-icon{
+        display: block; /* imp now icon will be wisible */
+    }
+    .nav-links { /* this is the ul now will be shown in columns*/
+        position: absolute;
+        top:100%;
+        margin-top:1rem;
+        width:100%;
+        padding:1rem;
+        color:white;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background:rgba(0, 0, 0, 0.833);
+        border-radius:3rem;
+        display:none; /* it will be displayed when it icon is triggered */
+    }
+    /* .active is a class we will create in java script */
+    .nav-links li{
+        margin-top:1.5rem;
+        padding: 0.6rem;
+    }
+    .nav-links.active{ /* imp */
+        display: block;
+    }
+    header{
+        padding: 1rem 2.5rem;
+        gap:4rem;
+    }
+    header .logo{
+        font-size:1.5rem;
+    }
+    .about-container img{
+        width: 80vw;
+    }
+    .input-box input{
+        padding:0.5rem 3rem;
+        width:80%;
+        font-size: 1.5rem;
+    }
+    .input-box input::placeholder{
+        font-size: 1.5rem;
+    }
+    footer ul{
+        gap:1rem;
+    }
+}
